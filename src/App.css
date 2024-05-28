@@ -1,0 +1,28 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* ::-webkit-scrollbar-thumb{
+    background-color: #888;
+    height: 30px;
+    width: 30px;
+} */
+@font-face {
+    font-family: Source Sans Pro;
+    src: url(./assets/Source_Sans_3/SourceSans3-VariableFont_wght.ttf);
+}
+@import url('https://fonts.cdnfonts.com/css/freestyle-script');
+
+*{
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar{
+    height: 30px;
+    width: 30px;
+}
+
+.app {
+    font-family: 'Source Sans Pro';
+    background-image: radial-gradient(#CA39C5, white);
+}

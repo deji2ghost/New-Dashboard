@@ -1,0 +1,29 @@
+import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { SideNav } from '../Components/SideNav';
+import { Header } from '../Components/Header';
+import { Outlet } from 'react-router-dom';
+
+export const Home = ({ user }) => {
+    console.log(user.email)
+
+    const [collapsed, setCollapsed] = useState(false)
+    const handleCollapse = () => {
+        console.log('clicked')
+        setCollapsed(!collapsed)
+    }
+  return (
+    <div className='app text-stone-100 flex h-[1000px] gap-2'>
+        {/* sideNav */}
+        <div className={`bg-black ${collapsed ? 'transform w-[23%]' : 'transform w-[7%]'} transition-all ease-in-out duration-300 p-2 flex flex-col gap-5 h-screen sticky top-0 drop-shadow-lg`}>
+            <button onClick={handleCollapse} className='pt-3 transition-all ease-in-out'>{collapsed ? <FontAwesomeIcon icon={faChevronLeft} /> : <FontAwesomeIcon icon={faChevronRight} /> }</button>
+            <SideNav collapsed={collapsed}/>
+        </div>
+        <div className='flex flex-col gap-2 w-full'>
+            <Header userEmail={user.email}/>
+            <Outlet />
+      </div>
+    </div>
+  )
+}
