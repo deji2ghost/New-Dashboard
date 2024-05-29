@@ -56,7 +56,7 @@ export const SignUp = ({ registerUser }) => {
                     </div>
                     <div className='flex flex-col'>
                         <input 
-                            type='text'
+                            type='password'
                             placeholder='password'
                             {...register('password')}
                             className='border-b border-gray-400 outline-none text-sm mb-[15px]  py-2'
@@ -64,7 +64,7 @@ export const SignUp = ({ registerUser }) => {
                     </div>
                     <div className='flex flex-col'>
                         <input 
-                            type='text'
+                            type='password'
                             placeholder='confirm password'
                             {...register('confirmPassword')}
                             className='border-b border-gray-400 outline-none text-sm mb-[30px]  py-2'
