@@ -33,7 +33,7 @@ export const SignUp = ({ registerUser }) => {
         <div className='welcome-div flex justify-center align-center w-[60%] border border-black rounded-l-lg bg-black p-[30px]'>
             <div className='logo px-6'>
                 <div className='flex justify-center items-center font-bold mt-40'>
-                    <h1 className='bg-blue-900 rounded-lg text-5xl font-medium px-1 mr-2'>A</h1>
+                    <h1 className='bg-blue-900 rounded-md text-5xl font-medium px-1 mr-2'>A</h1>
                     <p className='transition-all ease-in-out duration-500 font-medium text-white text-5xl'>ACCATEX</p>
                 </div>
             </div>
@@ -71,7 +71,7 @@ export const SignUp = ({ registerUser }) => {
                         /> 
                     </div>
                     <div className='flex flex-col'>
-                        <button type='submit' className='bg-black text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'>Sign Up</button>
+                        <button type='submit' className='bg-black text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'>sign up</button>
                     </div>
                 </div>
             </form>

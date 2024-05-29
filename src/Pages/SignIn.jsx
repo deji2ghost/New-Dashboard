@@ -34,7 +34,7 @@ export const SignIn = ({ signinUser }) => {
         <div className='welcome-div flex justify-center align-center w-[60%] border border-black rounded-l-lg bg-black p-[30px]'>
             <div className='logo px-6'>
                 <div className='flex justify-center items-center font-bold mt-40'>
-                    <h1 className='bg-blue-900 rounded-lg text-5xl font-medium px-1 mr-2'>A</h1>
+                    <h1 className='bg-blue-900 rounded-md text-5xl font-medium px-1 mr-2'>A</h1>
                     <p className='transition-all ease-in-out duration-500 font-medium text-white text-5xl'>ACCATEX</p>
                 </div>
             </div>
