@@ -59,7 +59,7 @@ export const SignIn = ({ signinUser }) => {
                     <div className='flex flex-col'>
                         {/* <label>Password</label> */}
                         <input 
-                            type='text'
+                            type='password'
                             placeholder='password'
                             {...register('password')}
                             className='border-b border-gray-400 outline-none text-sm mb-[30px] py-2'
