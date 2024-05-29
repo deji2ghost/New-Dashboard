@@ -13,10 +13,25 @@ import { ExpenseStatement } from './Pages/ExpenseStatement';
 
 function App() {
 
-  const [ user, setUser ] = useState(null)
+  const [ currentUser, setCurrentUser ] = useState(null)
+  const [ userLoggedIn, setUserLoggedIn ] = useState(false)
   const navigate = useNavigate()
 
-  console.log(user)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, initializeUser);
+    return unsubscribe
+  }, [])
+
+  const initializeUser = async(user) => {
+    if(user){
+      console.log(user)
+      setCurrentUser({...user})
+      setUserLoggedIn(true)
+    }else{
+      setCurrentUser(null)
+      setUserLoggedIn(false)
+    }
+  }
 
   const registerUser = async(data) => {
     try {
@@ -40,25 +55,26 @@ function App() {
         data.password,
       )
       console.log(loginData.user.email)
-      if(user){
+      // setTimeout(() => {
+        
+      // }, timeout);
+      if(userLoggedIn){
+        console.log('logged')
         navigate('/Home')
       }else{
-        console.log('you have to login')
+        console.log('Authen')
       }
     } catch (error) {
       console.log(error.message)
     }
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
-      console.log(currentUser)
-    })
   }
+
   return (
     <div>
       <Routes>
         <Route index element={<SignIn signinUser={signinUser} />}/>
         <Route path='SignUp' element={<SignUp registerUser={registerUser} />} />
-        <Route path='Home' element={<Home user={user}/>}>
+        <Route path='Home' element={<Home currentUser={currentUser}/>}>
           <Route index element={<Dashboard />}></Route>
           <Route path='Dashboard' element={<Dashboard />} />
           <Route path='OrderHistory' element={<OrderHistory />}/>

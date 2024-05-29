@@ -5,8 +5,7 @@ import { SideNav } from '../Components/SideNav';
 import { Header } from '../Components/Header';
 import { Outlet } from 'react-router-dom';
 
-export const Home = ({ user }) => {
-    console.log(user.email)
+export const Home = ({ currentUser }) => {
 
     const [collapsed, setCollapsed] = useState(false)
     const handleCollapse = () => {
@@ -21,7 +20,7 @@ export const Home = ({ user }) => {
             <SideNav collapsed={collapsed}/>
         </div>
         <div className='flex flex-col gap-2 w-full'>
-            <Header userEmail={user.email}/>
+            <Header userEmail={currentUser?.email}/>
             <Outlet />
       </div>
     </div>
