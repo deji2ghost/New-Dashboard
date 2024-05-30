@@ -10,12 +10,14 @@ import { Dashboard } from './Pages/Dashboard';
 import { OrderHistory } from './Pages/OrderHistory';
 import { Customers } from './Pages/Customers';
 import { ExpenseStatement } from './Pages/ExpenseStatement';
+import { ForgotPassword } from './Pages/ForgotPassword';
 
 function App() {
 
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ userLoggedIn, setUserLoggedIn ] = useState(false)
   const navigate = useNavigate()
+  console.log(userLoggedIn)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
@@ -27,6 +29,7 @@ function App() {
       console.log(user)
       setCurrentUser({...user})
       setUserLoggedIn(true)
+      console.log(currentUser)
     }else{
       setCurrentUser(null)
       setUserLoggedIn(false)
@@ -55,14 +58,12 @@ function App() {
         data.password,
       )
       console.log(loginData.user.email)
-      // setTimeout(() => {
-        
-      // }, timeout);
-      if(userLoggedIn){
+      
+      if(loginData){
         console.log('logged')
         navigate('/Home')
       }else{
-        console.log('Authen')
+        console.log('error')
       }
     } catch (error) {
       console.log(error.message)
@@ -74,7 +75,8 @@ function App() {
       <Routes>
         <Route index element={<SignIn signinUser={signinUser} />}/>
         <Route path='SignUp' element={<SignUp registerUser={registerUser} />} />
-        <Route path='Home' element={<Home currentUser={currentUser}/>}>
+        <Route path='forgotPassword' element={<ForgotPassword />} />
+        <Route path='Home' element={<Home currentUser={currentUser} setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn}/>}>
           <Route index element={<Dashboard />}></Route>
           <Route path='Dashboard' element={<Dashboard />} />
           <Route path='OrderHistory' element={<OrderHistory />}/>

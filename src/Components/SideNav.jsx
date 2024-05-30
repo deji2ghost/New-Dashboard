@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavDetails1, NavDetails2, NavDetails3 } from '../data/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { faArrowRightFromBracket, faCog, faHeadset } from '@fortawesome/free-solid-svg-icons'
+import { signOut } from 'firebase/auth'
+import { auth } from '../Auth/firebase-config'
 
-export const SideNav = ({ collapsed }) => {
+export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn  }) => {
+    const [isClick, setIsClick] = useState(false)
+    const navigate = useNavigate()
+    const logOut = async() => {
+        console.log('clicked')
+        await signOut(auth)
+        // setUserLoggedIn(!userLoggedIn)
+        console.log('clicked')
+        navigate('/')
+    }
   return (
     <>
         <div className='px-6 sticky top-0 bg-inherit'>
@@ -48,7 +60,7 @@ export const SideNav = ({ collapsed }) => {
                     })
                 }
             </div>
-            <div className='flex flex-col gap-2'>
+            {/* <div className='flex flex-col gap-2'>
                 {
                     NavDetails3.map((nav, index) => {
                     return(
@@ -63,6 +75,28 @@ export const SideNav = ({ collapsed }) => {
                     )
                     })
                 }
+            </div> */}
+            <div className='flex flex-col gap-2'>
+                <Link to=''>
+                    <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
+                        <FontAwesomeIcon icon={faHeadset} />
+                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Help and Support</h1>
+                    </div>
+                </Link>
+                <Link to=''>
+                    <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
+                        <FontAwesomeIcon icon={faCog} />
+                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Settings</h1>
+                    </div>
+                </Link>
+                
+                    <div 
+                        onClick={logOut}
+                        className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
+                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Log Out</h1>
+                    </div>
+                
             </div>
         </div>
     </>
