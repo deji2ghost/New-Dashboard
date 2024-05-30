@@ -98,12 +98,12 @@ export const SignIn = ({ signinUser, message }) => {
                     </div>
                     <div className='flex flex-col'>
                         <button type='submit' className='bg-black text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'>sign in</button>
-                        <button><Link to='/forgotPassword'>Forgot Password</Link></button>
-                        <button><Link to='/SignUp' className='text-sm text-slate-500 hover:underline'>Dont have an account</Link></button>
                         <button 
                             onClick={googleSignIn}
                             className='bg-black w-full text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'><FontAwesomeIcon icon={faGoogle}/> Sign In With Google
                         </button>
+                        <button><Link to='/forgotPassword'>Forgot Password</Link></button>
+                        <button><Link to='/SignUp' className='text-sm text-slate-500 hover:underline'>Dont have an account</Link></button>
                     </div>
                 </div>
             </form>
