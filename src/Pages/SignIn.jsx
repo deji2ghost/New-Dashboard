@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -9,8 +9,9 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from '../Auth/firebase-config'
 
-export const SignIn = ({ signinUser }) => {
+export const SignIn = ({ signinUser, message }) => {
 
+    // const [ message, setMessage ] = useState(false)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate()
 
@@ -24,6 +25,7 @@ export const SignIn = ({ signinUser }) => {
             console.log('clicked')
         } catch (error) {
             console.log(error)
+            // setMessage(true)
         }
         // const pop =  await signInWithPopup(auth, GoogleAuthProvider)
         // console.log(pop)
@@ -40,7 +42,7 @@ export const SignIn = ({ signinUser }) => {
         mode: 'onChange'
     })
 
-    const {register, handleSubmit} = form
+    const {register, handleSubmit, formState: { errors }} = form
 
     const onSubmit = (data) => {
         console.log('clicked')
@@ -65,7 +67,10 @@ export const SignIn = ({ signinUser }) => {
         <div className='form-div w-[40%] rounded-r-lg bg-white p-[35px]'>
             <button 
                 onClick={googleSignIn}
-                className='bg-black w-full text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'><FontAwesomeIcon icon={faGoogle}/> Sign In With Google</button>
+                className='bg-black w-full text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'><FontAwesomeIcon icon={faGoogle}/> Sign In With Google
+            </button>
+            {/* error text for invalid email and password */}
+            <p className='text-red-800'>{message && 'Invalid Email or Username'}</p>
             <form
                 onSubmit={handleSubmit(onSubmit, onError)} 
                 className='w-[100%] mx-auto bg-white flex justify-center'
@@ -81,6 +86,8 @@ export const SignIn = ({ signinUser }) => {
                             {...register('email')}
                             className='border-b border-gray-400 outline-none text-sm mb-[15px] py-2'
                         /> 
+                        {/* error text on empty input fields when you click */}
+                        <p className='text-red-800 text-[12px] bg-black rounded'>{errors?.email?.message}</p>
                     </div>
                     <div className='flex flex-col'>
                         {/* <label>Password</label> */}
@@ -90,6 +97,8 @@ export const SignIn = ({ signinUser }) => {
                             {...register('password')}
                             className='border-b border-gray-400 outline-none text-sm mb-[30px] py-2'
                         /> 
+                        {/* error text on empty input fields when you click */}
+                        <p className='text-red-800 text-[12px] bg-black rounded'>{errors?.password?.message}</p>
                     </div>
                     <div className='flex flex-col'>
                         <button type='submit' className='bg-black text-white text-sm rounded-full mb-[20px] pt-[5px] pb-[5px] pr-[7px] pl-[7px] hover:bg-slate-700 duration-300 transition-all ease-in-out'>sign in</button>

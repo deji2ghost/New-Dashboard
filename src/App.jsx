@@ -16,6 +16,7 @@ function App() {
 
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ userLoggedIn, setUserLoggedIn ] = useState(false)
+  const [ message, setMessage ] = useState(false)
   const navigate = useNavigate()
   console.log(userLoggedIn)
 
@@ -58,6 +59,7 @@ function App() {
         data.password,
       )
       console.log(loginData.user.email)
+      setMessage(false)
       
       if(loginData){
         console.log('logged')
@@ -65,15 +67,16 @@ function App() {
       }else{
         console.log('error')
       }
-    } catch (error) {
-      console.log(error.message)
+    } catch (err) {
+      console.error(err.message)
+      setMessage(true)
     }
   }
 
   return (
     <div>
       <Routes>
-        <Route index element={<SignIn signinUser={signinUser} />}/>
+        <Route index element={<SignIn signinUser={signinUser} message={message}/>}/>
         <Route path='SignUp' element={<SignUp registerUser={registerUser} />} />
         <Route path='forgotPassword' element={<ForgotPassword />} />
         <Route path='Home' element={<Home currentUser={currentUser} setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn}/>}>
