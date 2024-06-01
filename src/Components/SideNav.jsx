@@ -6,7 +6,7 @@ import { faArrowRightFromBracket, faCog, faHeadset } from '@fortawesome/free-sol
 import { signOut } from 'firebase/auth'
 import { auth } from '../Auth/firebase-config'
 
-export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn  }) => {
+export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal  }) => {
     const [isClick, setIsClick] = useState(false)
     const navigate = useNavigate()
     const logOut = async() => {
@@ -90,12 +90,12 @@ export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn  }) => {
                     </div>
                 </Link>
                 
-                    <div 
-                        onClick={logOut}
-                        className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Log Out</h1>
-                    </div>
+                <div 
+                    onClick={handleModal}
+                    className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
+                    <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                    <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Log Out</h1>
+                </div>
                 
             </div>
         </div>
