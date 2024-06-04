@@ -3,19 +3,16 @@ import { NavDetails1, NavDetails2, NavDetails3 } from '../data/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link, useNavigate } from 'react-router-dom'
 import { faArrowRightFromBracket, faCog, faHeadset } from '@fortawesome/free-solid-svg-icons'
-import { signOut } from 'firebase/auth'
-import { auth } from '../Auth/firebase-config'
+import { useTranslation } from 'react-i18next'
 
-export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal  }) => {
-    const [isClick, setIsClick] = useState(false)
-    const navigate = useNavigate()
-    const logOut = async() => {
-        console.log('clicked')
-        await signOut(auth)
-        // setUserLoggedIn(!userLoggedIn)
-        console.log('clicked')
-        navigate('/')
-    }
+export const SideNav = ({ collapsed, handleModal }) => {
+    const { t } = useTranslation()
+
+    const { 
+        HelpSupport,
+        Settings,
+        Logout
+    } = t('nav3')
   return (
     <>
         <div className='px-6 sticky top-0 bg-inherit'>
@@ -36,7 +33,7 @@ export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal 
                         <div key={index}>
                             <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
                             <FontAwesomeIcon icon={nav.icon} />
-                            <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-100 text-base`}>{nav.navName}</h1>
+                            <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-100 text-base`}>{t(`${nav.navName}`)}</h1>
                             </div>
                         </div>
                         </Link>
@@ -52,7 +49,7 @@ export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal 
                         <div key={index}>
                             <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
                                 <FontAwesomeIcon icon={nav.icon} />
-                                <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500 text-base`}>{nav.navName}</h1>
+                                <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500 text-base`}>{t(`${nav.navName}`)}</h1>
                             </div>
                         </div>
                         </Link>
@@ -80,13 +77,13 @@ export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal 
                 <Link to=''>
                     <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
                         <FontAwesomeIcon icon={faHeadset} />
-                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Help and Support</h1>
+                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>{HelpSupport}</h1>
                     </div>
                 </Link>
                 <Link to=''>
                     <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
                         <FontAwesomeIcon icon={faCog} />
-                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Settings</h1>
+                        <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>{Settings}</h1>
                     </div>
                 </Link>
                 
@@ -94,7 +91,7 @@ export const SideNav = ({ collapsed, setUserLoggedIn, userLoggedIn, handleModal 
                     onClick={handleModal}
                     className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
                     <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                    <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>Log Out</h1>
+                    <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-500text-base`}>{Logout}</h1>
                 </div>
                 
             </div>

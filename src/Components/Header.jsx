@@ -1,14 +1,26 @@
 import { faBell, faGear, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export const Header = ({ userEmail }) => {
+    const { t, i18n } = useTranslation()
+    const handleChange = (e) => {
+        const { value, name } = e.target
+        console.log(value, name)
+        changeLanguage(value)
+    }
+
+    const changeLanguage = (lng) => {
+        console.log('clicked');
+        i18n.changeLanguage(lng)
+    }
   return (
     <div className='bg-black h-[80px] w-full sticky top-0 z-50 col[2/3] row-[1/2] flex items-center justify-between p-7 rounded-b-md drop-shadow-lg'>
         {/* searchbar */}
         <div className='relative w-[50%] text-white'>
             <input
-                placeholder='Search'
+                placeholder={t('Search')}
                 className='bg-indigo-950 outline-none px-12 py-1 w-full rounded-md'
             />
             <FontAwesomeIcon icon={faSearch} className='absolute top-1/2 -translate-y-1/2 left-6 text-gray-300'/>
@@ -16,10 +28,10 @@ export const Header = ({ userEmail }) => {
         {/* account settings bar */}
         <div className='flex items-center gap-6'>
             {/* <img src={england} className='w-7'/> */}
-            <select name='language' id='language' className='outline-none bg-inherit cursor-pointer font-normal text-sm ml-0'>
-                <option value='English' className='bg-gray-800 cursor-pointer'>Eng/Uk</option>
-                <option value='French' className='bg-gray-800 cursor-pointer'>French</option>
-                <option value='Spanish' className='bg-gray-800 cursor-pointer'>Spanish</option>
+            <select onChange={handleChange} name='language' id='language' className='outline-none bg-inherit cursor-pointer font-normal text-sm ml-0'>
+                <option value='en' name = 'English' className='bg-gray-800 cursor-pointer'>Eng/Uk</option>
+                <option value='fr' name = 'French' className='bg-gray-800 cursor-pointer'>French</option>
+                <option value='esp' name = 'Spanish' className='bg-gray-800 cursor-pointer'>Spanish</option>
             </select>
             <div className='relative ml-2 mr-3'>
                 <FontAwesomeIcon icon={faBell} />

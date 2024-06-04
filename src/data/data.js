@@ -2,12 +2,12 @@ import { faArrowRightFromBracket, faCartShopping, faChartArea, faCog, faHeadset,
 
 export const NavDetails1 = [
     {
-        navName: 'Dashboard',
+        navName: 'dashboard',
         icon: faHome,
         path: 'Dashboard',
     },
     {
-        navName: 'Order History',
+        navName: 'OrderHistory',
         icon: faCartShopping,
         path: 'OrderHistory',
     },
@@ -21,30 +21,30 @@ export const NavDetails1 = [
         path: 'Customers',
     },
     {
-        navName: 'Expense Statement',
+        navName: 'ExpenseStatement',
         icon: faMoneyBill,
         path: 'ExpenseStatement',
     },
     {
-        navName: 'Sales Report',
+        navName: 'SalesReport',
         icon: faChartArea
     },
 ]
 
 export const NavDetails2 = [
     {
-        navName: 'Store Set-up',
+        navName: 'StoreSetup',
         icon: faStore
     },
     {
-        navName: 'Admin Account',
+        navName: 'AdminAccount',
         icon: faUser
     }
 ]
 
 export const NavDetails3 = [
     {
-        navName: 'Help & Support',
+        navName: 'HelpSupport',
         icon: faHeadset
     },
     {
