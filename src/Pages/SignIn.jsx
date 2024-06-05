@@ -25,10 +25,7 @@ export const SignIn = ({ signinUser, message }) => {
             console.log('clicked')
         } catch (error) {
             console.log(error)
-            // setMessage(true)
         }
-        // const pop =  await signInWithPopup(auth, GoogleAuthProvider)
-        // console.log(pop)
         console.log('clicked')
     }
 
@@ -43,27 +40,6 @@ export const SignIn = ({ signinUser, message }) => {
     }
 
     const { errors } = formState
-    // const schema = yup.object().shape({
-    //     email: yup.string().required(),
-    //     password: yup.string().min(7).max(20).required(),
-    // })
-
-    // const form = useForm({
-    //     resolver: yupResolver(schema),
-    //     mode: 'onChange'
-    // })
-
-    // const {register, handleSubmit, formState: { errors }} = form
-
-    // const onSubmit = (data) => {
-    //     console.log('clicked')
-    //     signinUser(data)
-    //     console.log('the data is', data)
-    // }
-
-    // const onError = (errors) => {
-    //     console.log('the error is', errors)
-    // }
 
   return (
     <div className='main flex justify-center align-auto h-[100vh] pt-20 pb-20 pr-20 pl-20'>

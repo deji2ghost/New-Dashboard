@@ -9,11 +9,10 @@ import { auth } from '../Auth/firebase-config';
 
 export const Home = ({ currentUser, setUserLoggedIn, userLoggedIn }) => {
 
-  const [ showModal, setShowModal ] = useState(false)
   const navigate = useNavigate()
+  const [ showModal, setShowModal ] = useState(false)
 
   const handleModal = () => {
-    console.log('clicked')
     setShowModal(!showModal)
   }
 
@@ -26,7 +25,6 @@ export const Home = ({ currentUser, setUserLoggedIn, userLoggedIn }) => {
 
   const [collapsed, setCollapsed] = useState(false)
   const handleCollapse = () => {
-    console.log('clicked')
     setCollapsed(!collapsed)
   }
 

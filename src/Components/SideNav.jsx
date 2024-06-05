@@ -27,15 +27,14 @@ export const SideNav = ({ collapsed, handleModal }) => {
             <div className='flex flex-col gap-2'>
                 {
                     NavDetails1.map((nav, index) => {
-                    console.log(nav.path)
                     return(
                         <Link to={nav.path}>
-                        <div key={index}>
-                            <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
-                            <FontAwesomeIcon icon={nav.icon} />
-                            <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-100 text-base`}>{t(`${nav.navName}`)}</h1>
+                            <div key={index}>
+                                <div className='h-10 flex items-center gap-4 cursor-pointer hover:bg-violet-950 rounded-3xl hover:text-bg-white transition-all duration-200 ease-in-out px-6 py-2'>
+                                <FontAwesomeIcon icon={nav.icon} />
+                                <h1 className={`${collapsed ? 'visible' : 'hidden'} transition-all ease-in-out duration-100 text-base`}>{t(`${nav.navName}`)}</h1>
+                                </div>
                             </div>
-                        </div>
                         </Link>
                     )
                     })

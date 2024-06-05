@@ -11,15 +11,21 @@ import { OrderHistory } from './Pages/OrderHistory';
 import { Customers } from './Pages/Customers';
 import { ExpenseStatement } from './Pages/ExpenseStatement';
 import { ForgotPassword } from './Pages/ForgotPassword';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 function App() {
 
   const [ currentUser, setCurrentUser ] = useState(null)
   const [ userLoggedIn, setUserLoggedIn ] = useState(false)
   const [ message, setMessage ] = useState(false)
-  const navigate = useNavigate()
-  console.log(userLoggedIn)
+  const [ currentDate, setCurrentDate ] = useState(new Date())
+  const [ weekly, setWeekly ] = useState(false)
+  const [ showCalendar, setShowCalendar ] = useState(false)
 
+  const navigate = useNavigate()
+
+  // User Auth State Change for Firebase 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, initializeUser);
     return unsubscribe
@@ -37,6 +43,7 @@ function App() {
     }
   }
 
+  // Register user Function
   const registerUser = async(data) => {
     try {
       const userData = await createUserWithEmailAndPassword(
@@ -51,6 +58,7 @@ function App() {
     }
   }
 
+  // Sign in User Function
   const signinUser = async(data) => {
     try {
       const loginData = await signInWithEmailAndPassword(
@@ -79,14 +87,22 @@ function App() {
         <Route index element={<SignIn signinUser={signinUser} message={message}/>}/>
         <Route path='SignUp' element={<SignUp registerUser={registerUser} />} />
         <Route path='forgotPassword' element={<ForgotPassword />} />
-        <Route path='Home' element={<Home currentUser={currentUser} setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn}/>}>
-          <Route index element={<Dashboard />}></Route>
-          <Route path='Dashboard' element={<Dashboard />} />
-          <Route path='OrderHistory' element={<OrderHistory />}/>
-          <Route path='Customers' element={<Customers />}/>
-          <Route path='ExpenseStatement' element={<ExpenseStatement />}/>
+        <Route path='Home' element={<Home currentUser={currentUser} setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn} currentDate={currentDate}/>}>
+          <Route index element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
+          <Route path='Dashboard' element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
+          <Route path='OrderHistory' element={<OrderHistory showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>}/>
+          <Route path='Customers' element={<Customers showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
+          <Route path='ExpenseStatement' element={<ExpenseStatement showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
         </Route>
       </Routes>
+
+      {/* Modal for the Calendar Pop Up */}
+      <div className={`fixed ${ showCalendar ? 'visible' : 'hidden'} top-0 w-full h-screen bg-gray-300 bg-opacity-10`}>
+        <div className='react-calendar absolute top-[160px] left-0 right-0 mx-auto bg-green-700 border-none'>
+          <Calendar value={currentDate} onChange={setCurrentDate} selectRange={weekly} defaultView='month' />
+          <button onClick={() => setShowCalendar(false)} className='bg-[#6f48eb] w-full p-3 rounded-b-[8px]'>Set Date</button>
+        </div>
+      </div>
     </div>
   )
 }

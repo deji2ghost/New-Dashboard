@@ -12,11 +12,10 @@ export const Header = ({ userEmail }) => {
     }
 
     const changeLanguage = (lng) => {
-        console.log('clicked');
         i18n.changeLanguage(lng)
     }
   return (
-    <div className='bg-black h-[80px] w-full sticky top-0 z-50 col[2/3] row-[1/2] flex items-center justify-between p-7 rounded-b-md drop-shadow-lg'>
+    <div className='bg-black h-[80px] w-full sticky top-0 z-40 col[2/3] row-[1/2] flex items-center justify-between p-7 rounded-b-md drop-shadow-lg'>
         {/* searchbar */}
         <div className='relative w-[50%] text-white'>
             <input

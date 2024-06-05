@@ -1,13 +1,13 @@
 import React from 'react'
 import { Overview } from '../Components/Overview'
 
-export const Customers = () => {
+export const Customers = ({ weekly, setWeekly, currentDate }) => {
   return (
     <div>
         <div className='grid grid-cols-[repeat(16,1fr)] grid-rows-[repeat(17,1fr)] bg-inherit gap-2 h-[1000px]'>
             {/* second header */}
             <div className='bg-black col-[1/17] row-[1/3] flex justify-between items-center px-4 rounded-md drop-shadow-lg'>
-                <Overview title='customerOverview' />
+                <Overview title='customerOverview' weekly={weekly} setWeekly={setWeekly} currentDate={currentDate}/>
             </div>
 
             {/* four grid beneath the second header */}

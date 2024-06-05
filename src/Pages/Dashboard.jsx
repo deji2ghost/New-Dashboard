@@ -2,13 +2,13 @@ import React from 'react'
 import { Overview } from '../Components/Overview'
 import { FourGrid } from '../Components/FourGrid'
 
-export const Dashboard = () => {
+export const Dashboard = ({ showCalendar, setShowCalendar, currentDate, weekly, setWeekly }) => {
   return (
     <div>
         <div className='grid grid-cols-[repeat(16,1fr)] grid-rows-[repeat(17,1fr)] bg-inherit gap-2 h-[1000px]'>
             {/* second header */}
             <div className='bg-black col-[1/17] row-[1/3] flex justify-between items-center px-4 rounded-md drop-shadow-lg'>
-                <Overview title='salesOverview' />
+                <Overview title='salesOverview' showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>
             </div>
 
             {/* four grid beneath the second header */}
