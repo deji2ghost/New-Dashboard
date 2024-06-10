@@ -17,7 +17,7 @@ export const NavDetails1 = [
     },
     {
         navName: 'Customers',
-        icon: faUserGroup,
+        icon: faUsers,
         path: 'Customers',
     },
     {
