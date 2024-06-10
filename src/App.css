@@ -27,6 +27,8 @@
     background-image: radial-gradient(#CA39C5, white);
 }
 
+ /* Calendar style  */
+
 .react-calendar{
     width: 400px;
     max-width: 100%;

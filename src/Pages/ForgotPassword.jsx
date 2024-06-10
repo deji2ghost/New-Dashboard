@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 export const ForgotPassword = () => {
     const navigate = useNavigate()
 
+    // Password reset function firebase
     const sendLink = async(data) => {
         console.log(data)
         try {

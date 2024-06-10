@@ -71,7 +71,7 @@ function App() {
       
       if(loginData){
         console.log('logged')
-        navigate('/Home')
+        navigate('/Home/Dashboard')
       }else{
         console.log('error')
       }
@@ -88,7 +88,7 @@ function App() {
         <Route path='SignUp' element={<SignUp registerUser={registerUser} />} />
         <Route path='forgotPassword' element={<ForgotPassword />} />
         <Route path='Home' element={<Home currentUser={currentUser} setUserLoggedIn={setUserLoggedIn} userLoggedIn={userLoggedIn} currentDate={currentDate}/>}>
-          <Route index element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
+          {/* <Route index element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} /> */}
           <Route path='Dashboard' element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
           <Route path='OrderHistory' element={<OrderHistory showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>}/>
           <Route path='Customers' element={<Customers showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />

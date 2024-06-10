@@ -19,13 +19,12 @@ export const SignIn = ({ signinUser, message }) => {
         try{
             const res = await signInWithPopup(auth, googleProvider)
             if(res){
-                navigate('/Home')
+                navigate('/Home/Dashboard')
             }
             console.log(res)
             console.log('clicked')
         } catch (error) {
-            console.log(error)
-        }
+            console.log(error)        }
         console.log('clicked')
     }
 
