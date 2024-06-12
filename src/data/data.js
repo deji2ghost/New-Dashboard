@@ -14,6 +14,7 @@ export const NavDetails1 = [
     {
         navName: 'Products',
         icon: faTag,
+        path: 'ProductsInventory',
     },
     {
         navName: 'Customers',

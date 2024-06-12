@@ -8,6 +8,7 @@ import { SignIn } from './Pages/SignIn';
 import { Home } from './Pages/Home';
 import { Dashboard } from './Pages/Dashboard';
 import { OrderHistory } from './Pages/OrderHistory';
+import { ProductsInventory } from './Pages/ProductsInventory';
 import { Customers } from './Pages/Customers';
 import { ExpenseStatement } from './Pages/ExpenseStatement';
 import { ForgotPassword } from './Pages/ForgotPassword';
@@ -91,6 +92,7 @@ function App() {
           {/* <Route index element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} /> */}
           <Route path='Dashboard' element={<Dashboard showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
           <Route path='OrderHistory' element={<OrderHistory showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>}/>
+          <Route path='ProductsInventory' element={<ProductsInventory showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>}/>
           <Route path='Customers' element={<Customers showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
           <Route path='ExpenseStatement' element={<ExpenseStatement showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>} />
         </Route>
