@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Source Sans Pro;
+    src: url('../assets/Source_Sans_3/SourceSans3-VariableFont_wght.ttf');
+}
+.main {
+    background-image: radial-gradient(#CA39C5, white);;
+}
+.sign-in {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo {
+    font-family: Source Sans Pro;
+}
