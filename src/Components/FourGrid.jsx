@@ -5,7 +5,7 @@ export const FourGrid = (props) => {
     <>
         <div className='col-[1/17] row-[3/6] grid grid-cols-4 gap-2'>
             {/* grid1 */}
-            <div className='bg-black px-8 py-5 rounded-md drop-shadow-lg'>
+            <div className='dark:bg-black bg-stone-100 px-8 py-5 rounded-md drop-shadow-lg'>
               <div className='flex items-center mb-5'>
                 {props.grid1icon}
                 <p className=''>{props.grid1title}</p>
@@ -15,7 +15,7 @@ export const FourGrid = (props) => {
             </div>
 
             {/* grid2 */}
-            <div className='bg-black px-8 py-5 rounded-md drop-shadow-lg'>
+            <div className='dark:bg-black bg-stone-100 px-8 py-5 rounded-md drop-shadow-lg'>
               <div className='flex items-center mb-5'>
                 {props.grid2icon}
                 <p className=''>{props.grid2title}</p>
@@ -25,7 +25,7 @@ export const FourGrid = (props) => {
             </div>
 
             {/* grid3 */}
-            <div className='bg-black px-8 py-5 rounded-md drop-shadow-lg'>
+            <div className='dark:bg-black bg-stone-100 px-8 py-5 rounded-md drop-shadow-lg'>
               <div className='flex items-center mb-5'>
                 {props.grid3icon}
                 <p className=''>{props.grid3title}</p>
@@ -35,7 +35,7 @@ export const FourGrid = (props) => {
             </div>
 
             {/* grid4 */}
-            <div className='bg-black px-8 py-5 rounded-md drop-shadow-lg'>
+            <div className='dark:bg-black bg-stone-100 px-8 py-5 rounded-md drop-shadow-lg'>
               <div className='flex items-center mb-5'>
                 {props.grid4icon}
                 <p className=''>{props.grid4title}</p>

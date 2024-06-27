@@ -17,7 +17,7 @@ import 'react-calendar/dist/Calendar.css';
 
 function App() {
 
-  const [ currentUser, setCurrentUser ] = useState(null)
+  const [ currentUser, setCurrentUser ] = useState()
   const [ userLoggedIn, setUserLoggedIn ] = useState(false)
   const [ message, setMessage ] = useState(false)
   const [ currentDate, setCurrentDate ] = useState(new Date())

@@ -51,7 +51,7 @@ export const Overview = (props) => {
             {/* <div className='react-calendar'>
               <Calendar value={currentDate} onChange={setCurrentDate} />
             </div> */}
-            <button className='bg-violet-950 px-3 py-1 mr-2 ml-3 rounded-sm hover:bg-purple-400'>
+            <button className='dark:bg-violet-950 bg-amber-900 px-3 py-1 mr-2 ml-3 rounded-sm hover:bg-purple-400'>
                 <FontAwesomeIcon icon={faDownload}/>
                 <span className='ml-2'>{t(`downloadReport`)}</span>
             </button>

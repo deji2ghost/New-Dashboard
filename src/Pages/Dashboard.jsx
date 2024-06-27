@@ -5,16 +5,16 @@ import { Overview } from '../Components/Overview'
 import { FourGrid } from '../Components/FourGrid'
 
 export const Dashboard = ({ showCalendar, setShowCalendar, currentDate, weekly, setWeekly }) => {
-  const icon1 = <FontAwesomeIcon icon={faDollarSign} className='text-black border-violet-500 bg-violet-500 text-2xl px-2 py-1 mr-2 rounded-full' />
-  const icon2 = <FontAwesomeIcon icon={faUserGroup} className='text-violet-500 text-2xl py-1 mr-2 rounded-full' />
-  const icon3 = <FontAwesomeIcon icon={faBagShopping} className='text-violet-500 text-2xl py-1 mr-2 rounded-full' />
+  const icon1 = <FontAwesomeIcon icon={faDollarSign} className='text-black border-violet-500 dark:bg-violet-500 bg-amber-700 text-2xl px-2 py-1 mr-2 rounded-full' />
+  const icon2 = <FontAwesomeIcon icon={faUserGroup} className='dark:text-violet-500 text-amber-700 text-2xl py-1 mr-2 rounded-full' />
+  const icon3 = <FontAwesomeIcon icon={faBagShopping} className='dark:text-violet-500 text-amber-700 text-2xl py-1 mr-2 rounded-full' />
   // const icon4 = <image src={bullseye} />
 
   return (
     <div>
         <div className='grid grid-cols-[repeat(16,1fr)] grid-rows-[repeat(17,1fr)] bg-inherit gap-2 h-[1000px]'>
             {/* second header */}
-            <div className='bg-black col-[1/17] row-[1/3] flex justify-between items-center px-4 rounded-md drop-shadow-lg'>
+            <div className='dark:bg-black bg-stone-100 col-[1/17] row-[1/3] flex justify-between items-center px-4 rounded-md drop-shadow-lg'>
                 <Overview title='salesOverview' showCalendar={showCalendar} setShowCalendar={setShowCalendar} currentDate={currentDate} weekly={weekly} setWeekly={setWeekly}/>
             </div>
 
@@ -33,11 +33,11 @@ export const Dashboard = ({ showCalendar, setShowCalendar, currentDate, weekly, 
             />
             
             {/* rest of the layout */}
-            <div className='bg-black col-[1/12] row-[6/14] rounded-md shadow-lg'></div>
-            <div className='bg-black col-[12/17] row-[6/10] rounded-md shadow-lg'></div>
-            <div className='bg-black col-[12/17] row-[10/14] rounded-md shadow-lg'></div>
-            <div className='bg-black col-[1/12] row-[14/18] rounded-t-md shadow-lg'></div>
-            <div className='bg-black col-[12/17] row-[14/18] rounded-t-md shadow-lg'></div>
+            <div className='dark:bg-black bg-stone-100 col-[1/12] row-[6/14] rounded-md shadow-lg'></div>
+            <div className='dark:bg-black bg-stone-100 col-[12/17] row-[6/10] rounded-md shadow-lg'></div>
+            <div className='dark:bg-black bg-stone-100 col-[12/17] row-[10/14] rounded-md shadow-lg'></div>
+            <div className='dark:bg-black bg-stone-100 col-[1/12] row-[14/18] rounded-t-md shadow-lg'></div>
+            <div className='dark:bg-black bg-stone-100 col-[12/17] row-[14/18] rounded-t-md shadow-lg'></div>
         </div>
     </div>
   )
